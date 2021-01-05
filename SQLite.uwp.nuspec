@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>SQLite.uwp</id>
+    <version>3.34.0</version>
+    <title>SQLite.uwp</title>
+    <authors>SQLite Development Team</authors>
+    <owners>ZhuiMeng</owners>
+    <licenseUrl>https://marketplace.visualstudio.com/items/SQLiteDevelopmentTeam.SQLiteforUniversalWindowsPlatform/license</licenseUrl>
+    <projectUrl>https://github.com/MengYunfan/SQLite.uwp</projectUrl>
+    <iconUrl>https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Sqlite-square-icon.svg/64px-Sqlite-square-icon.svg.png</iconUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>This is nuget package version of SQLite for Universal Windows Platform, with this package you don't need to install SQLite for Universal Windows Platform any more, and it was very useful when your app need to build on Azure DevOps.</description>
+    <releaseNotes>v3.34.0</releaseNotes>
+    <tags>SQLite SQLite.uwp SQLite3</tags>
+  </metadata>
+  <files>
+
+    <!-- DLLs and resources -->
+    <file src="ARM\sqlite3.dll" target="runtimes\win10-arm\native"/>
+    <file src="x64\sqlite3.dll" target="runtimes\win10-x64\native"/>
+    <file src="x86\sqlite3.dll" target="runtimes\win10-x86\native"/>
+
+  </files>
+</package>
