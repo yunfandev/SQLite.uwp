@@ -1,0 +1,48 @@
+name: nuget
+
+on:
+  schedule:
+    - cron: 0 0 * * *
+  push:
+    branches:
+    - master
+    - release/*
+
+jobs:
+  build:
+    name: Build nuget package
+    runs-on: Ubuntu-20.04
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
+
+    - name: Import GPG key
+      uses: crazy-max/ghaction-import-gpg@v3
+      with:
+        gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
+        passphrase: ${{ secrets.PASSPHRASE }}
+        git-user-signingkey: true
+        git-commit-gpgsign: true
+
+    - name: Build nuget package
+      env:
+        APIKEY: ${{ secrets.APIKEY }}
+      run: |
+        docker version
+        docker run --rm -e APIKEY=$APIKEY -v $(pwd):/SQLite yunfandev/nuget pwsh /SQLite/update.ps1
+
+    - name: Commit files
+      run: |
+        version=$(<VERSION)
+        git config --global user.email "yunfandev@outlook.com"
+        git config --global user.name "yunfan"
+        git add .
+        git commit -S -m "Upgrade to $version" || :
+
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ github.ref }}
