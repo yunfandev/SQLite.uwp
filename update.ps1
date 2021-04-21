@@ -10,7 +10,7 @@ function CheckForUpdate {
             if ($page -match $vsixPattern) {
                 return $version, ("https://www.sqlite.org/" + $Matches[1])
             } else {
-                throw "Prase package failed"
+                Write-Host "Prase package failed"
             }
         }
         return $version
@@ -55,8 +55,8 @@ function CreateUpdate {
 Set-Location $PSScriptRoot
 $result = CheckForUpdate
 if ($result.Count -le 1) {
-    Write-Output "No update"
+    Write-Host "No update"
 } else {
-    Write-Output ("New version found " + $result[0])
+    Write-Host ("New version found " + $result[0])
     CreateUpdate $result[0] $result[1]
 }
