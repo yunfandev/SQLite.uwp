@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>SQLite.uwp</id>
-    <version>3.35.4</version>
+    <version>3.35.5</version>
     <title>SQLite.uwp</title>
     <authors>SQLite Development Team</authors>
     <owners>yunfan.dev</owners>
@@ -11,7 +11,7 @@
     <iconUrl>https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Sqlite-square-icon.svg/64px-Sqlite-square-icon.svg.png</iconUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <description>This is nuget package version of SQLite for Universal Windows Platform, with this package you don't need to install SQLite for Universal Windows Platform any more, and it was very useful when your app need to build on Azure DevOps.</description>
-    <releaseNotes>v3.35.4</releaseNotes>
+    <releaseNotes>v3.35.5</releaseNotes>
     <tags>SQLite SQLite.uwp SQLite3</tags>
   </metadata>
   <files>
@@ -23,6 +23,7 @@
 
   </files>
 </package>
+
 
 
 
